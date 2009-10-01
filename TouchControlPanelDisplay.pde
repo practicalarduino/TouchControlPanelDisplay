@@ -3,13 +3,15 @@
  * Copyright 2009 Jonathan Oxer <jon@oxer.com.au>
  * Copyright 2009 Hugh Blemings <hugh@blemings.org>
  *
+ * NOTE: This program is for Processing, NOT Arduino! It runs on your
+ * computer while the Arduino itself runs the "ReadTouchscreen" example
+ * program that is included with the TouchScreen library.
+ *
  * Changes the state of virtual buttons depending on input from a
  * Nintendo DS touch screen attached to an Arduino and sending X and Y
  * data via the serial port in the format X,Y, such as: 223,43.
  *
- * NOTE: This program is for Processing, NOT Arduino! It runs on your
- * computer while the Arduino itself runs the "ReadTouchscreen" example
- * program that is included with the TouchScreen library.
+ *  www.practicalarduino.com/projects/touch-control-panel
  */
 
 import processing.serial.*;
@@ -60,7 +62,6 @@ void serialEvent( Serial myPort )
     int[] coords = int( split( inString, ',' ) );
 
     if((coords[0] > 696) && (coords[0] < 866) && (coords[1] > 546) && (coords[1] < 831)) {
-      //Serial.print(", Fan ON");
       fill( 127, 255, 0 );
       rect(50, 50, 200, 200);
     } else {
@@ -68,7 +69,6 @@ void serialEvent( Serial myPort )
       rect(50, 50, 200, 200);
     }
     if((coords[0] > 696) && (coords[0] < 866) && (coords[1] > 208) && (coords[1] < 476)) {
-      //Serial.print(", Fan OFF");
       fill( 255, 0, 0 );
       rect(50, 350, 200, 200);
     } else {
@@ -76,7 +76,6 @@ void serialEvent( Serial myPort )
       rect(50, 350, 200, 200);
     }
     if((coords[0] > 420) && (coords[0] < 577) && (coords[1] > 540) && (coords[1] < 866)) {
-      //Serial.print(", Drapes OPEN");
       fill( 127, 255, 0 );
       rect(300, 50, 200, 200);
     } else {
@@ -84,7 +83,6 @@ void serialEvent( Serial myPort )
       rect(300, 50, 200, 200);
     }
     if((coords[0] > 420) && (coords[0] < 577) && (coords[1] > 208) && (coords[1] < 476)) {
-      //Serial.print(", Drapes CLOSE");
       fill( 255, 0, 0 );
       rect(300, 350, 200, 200);
     } else {
@@ -92,9 +90,6 @@ void serialEvent( Serial myPort )
       rect(300, 350, 200, 200);
     }
     if((coords[0] > 139) && (coords[0] < 327) && (coords[1] > 208) && (coords[1] < 866)) {
-      /* Serial.print(", Illumination:");
-      Serial.print(constrain(map(coords[1], 318, 756, 0, 100), 0, 100));
-      Serial.print("%"); */
       fill( 218, 165, 32 );
       rect(550, 50, 200, 500);
       fill( 255, 215, 0 );
