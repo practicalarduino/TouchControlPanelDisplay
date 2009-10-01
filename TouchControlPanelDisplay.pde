@@ -1,6 +1,7 @@
 /**
  * Touch Control Panel Display
- * by Jonathan Oxer <jon@oxer.com.au>
+ * Copyright 2009 Jonathan Oxer <jon@oxer.com.au>
+ * Copyright 2009 Hugh Blemings <hugh@blemings.org>
  *
  * Changes the state of virtual buttons depending on input from a
  * Nintendo DS touch screen attached to an Arduino and sending X and Y
